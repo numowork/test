@@ -1,5 +1,5 @@
 #!/bin/sh
 echo "dsf"
 mongo
-echo "sdf"
-eval "db.hello()"
+
+spawn "db.hello()"
