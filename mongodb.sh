@@ -1,6 +1,7 @@
 #!/bin/sh
 echo "dsf"
-mongo
-mongo test --eval "db.hello()"
+#mongo test1
+mongo test --eval "db.restaurants.find()"
+mongo test --eval "db.restaurants.find({borough:'Queens'})"
 #mongo test --eval "printjson(db.getCollectionNames())"
 #eval "db.hello()"
