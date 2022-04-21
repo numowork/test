@@ -1,5 +1,6 @@
 #!/bin/sh
 echo "dsf"
 mongo
-expect ">\r"
-send "db.hello()"
+mongo test --eval "db.hello()"
+#mongo test --eval "printjson(db.getCollectionNames())"
+#eval "db.hello()"
