@@ -3,7 +3,7 @@ echo "dsf"
 #mongo test1
 #mongo test --eval "db.restaurants.find({borough:'Queens'}, {${unset}: grades})"
 mongo test --eval "db.restaurants.find({borough:'Queens'}).pretty()"
-mongo  --eval "use test3"
+mongo  --eval "use test4"
 mongo  --eval "db.test3.insert({
                                                                          "date" : ISODate("2014-01-16T00:00:00Z"),
                                                                          "grade" : "A",
