@@ -1,4 +1,4 @@
 #!/bin/sh
 echo "dsf"
 mongo
-db.hello()
+send "db.hello()"
