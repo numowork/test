@@ -1,4 +1,4 @@
 #!/bin/sh
 echo "dsf"
-mongo test --eval "printjson(db.getCollectionNames())"
+mongo
 eval "db.hello()"
