@@ -38,7 +38,7 @@ async function main() {
 main().catch(console.error)
 
 async function listDatabases(client) {
-    const databasesClient = await client.db('apple').collectionName();
+    const databasesClient = await client.db('apple').collectionNames();
 
     console.log("Databases:", databasesClient)
     // databasesClient.databases.forEach(db => {
