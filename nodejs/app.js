@@ -66,20 +66,45 @@ app.use(express.urlencoded({ extended: true }));
 //     // });
 // });
 
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+//
+// const MONGO_USERNAME = 'numowork';
+// const MONGO_PASSWORD = '12345';
+// const MONGO_HOSTNAME = '127.0.0.1';
+// const MONGO_PORT = '27017';
+// const MONGO_DB = 'apple';
+//
+// async function start(){
+//     const url = await `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+//     console.log(url)
+//     const dd = await mongoose.connect(url, {useNewUrlParser: true});
+//     // console.log(dd.db.collections)
+//     console.log(dd.db.collections())
+//     console.log(dd.client)
+// }
+// start()
 
-const MONGO_USERNAME = 'numowork';
-const MONGO_PASSWORD = '12345';
-const MONGO_HOSTNAME = '127.0.0.1';
-const MONGO_PORT = '27017';
-const MONGO_DB = 'apple';
 
-async function start(){
-    const url = await `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
-    console.log(url)
-    const dd = await mongoose.connect(url, {useNewUrlParser: true});
-    // console.log(dd.db.collections)
-    console.log(dd.db.collections())
-    console.log(dd.client)
-}
-start()
+// Requiring module
+const MongoClient = require("mongodb");
+
+// Connection URL
+const url = 'mongodb://localhost:27017/';
+
+// Database name
+const databasename = "apple";
+
+MongoClient.connect(url).then((client) => {
+
+    // Use admin request
+    const connect = client.db(databasename).admin();
+
+    connect.listDatabases((err,db) => {
+        // Printing the databases
+        if(!err) console.log(db);
+    })
+}).catch((err) => {
+
+    // Printing the error message
+    console.log(err.Message);
+})
