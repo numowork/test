@@ -80,8 +80,7 @@ async function start(){
     console.log(url)
     const dd = await mongoose.connect(url);
 
-    console.log(dd.db)
-    console.log(dd.databases)
+    console.log(dd.db.listDatabases())
     // console.log(dd.db.collections())
     // console.log(dd.client)
 }
