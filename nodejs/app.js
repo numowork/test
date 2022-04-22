@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 // console.log("Database connected successfully");
 // console.log(db.logs.find())
 // });
-// const {MongoClient} = require('mongodb')
+const {MongoClient} = require('mongodb')
 //
 // let x = new Mongo('mongodb://127.0.0.1:27017/');
 // let mydb = x.getDB('apple');
@@ -86,7 +86,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Requiring module
-const MongoClient = require("mongodb");
+// const MongoClient = require("mongodb");
 
 // Connection URL
 const url = 'mongodb://localhost:27017/';
