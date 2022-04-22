@@ -23,7 +23,7 @@ async function main() {
     try {
         console.log("working")
         await client.connect()
-
+        await listDatabases(client)
     } catch (e) {
         console.log(e)
     } finally {
