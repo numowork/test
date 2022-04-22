@@ -47,7 +47,7 @@ const {MongoClient} = require('mongodb')
 
 // let MongoClient = require('mongodb').MongoClient
     , format = require('util').format;
-MongoClient.connect('mongodb://127.0.0.1:27017/apple', function (err, db) {
+MongoClient.connect('mongodb://127.0.0.1:27017/', function (err, db) {
     if (err) throw err;
     console.log(db)
     console.log(JSON.parse(db))
