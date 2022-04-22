@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "dsf"
-scp -i ~/All/ssh/root.pem -o StrictHostKeyChecking=no -r /srv/theplatform/app.log root@93.123.12.65:/root/datacat/brands/genesis/app.log
+scp -i ~/All/ssh/root.pem -o StrictHostKeyChecking=no -r /srv/theplatform/app.log /root/numowork/brands/genesis/app.log
 echo "copied"
 declare -A brands=(
   ["genesis"]="root@93.123.12.65"
@@ -68,6 +68,7 @@ declare -A brands=(
 )
 
 for key in "${!brands[@]}"; do
+  echo $key
   scp -i ~/All/ssh/root.pem -o StrictHostKeyChecking=no -r "${brands[$key]}":/root/datacat/brands/genesis/app.log /root/numowork/brands/$key/app.log
   mongoimport --db $key --collection logs --file /root/numowork/brands/$key/app.log
 done
