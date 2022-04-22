@@ -21,35 +21,35 @@ const {MongoClient} = require('mongodb')
 // console.log(mydb)
 // var mydb = connect('host[:port]/mydb');
 
-// async function main() {
-//     const url = 'mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.3.1'
-//
-//     const client = new MongoClient(url)
-//
-//     try {
-//         console.log("working")
-//         await client.connect()
-//         // client.db
-//         await listDatabases(client)
-//     } catch (e) {
-//         console.log(e)
-//     } finally {
-//         await client.close()
-//     }
-//
-//
-// }
-//
-// main().catch(console.error)
-//
-// async function listDatabases(client) {
-//     const databasesClient = await client.db('apple').collectionNames();
-//
-//     // console.log("Databases:", databasesClient)
-//     databasesClient.databases.forEach(db => {
-//         console.log(`--${db.name}`)
-//     })
-// }
+async function main() {
+    const url = 'mongodb://127.0.0.1:27017/'
+
+    const client = new MongoClient(url)
+
+    try {
+        console.log("working")
+        await client.connect()
+        // client.db
+        await listDatabases(client)
+    } catch (e) {
+        console.log(e)
+    } finally {
+        await client.close()
+    }
+
+
+}
+
+main().catch(console.error)
+
+async function listDatabases(client) {
+    const databasesClient = await client.db().admin();
+
+    // console.log("Databases:", databasesClient)
+    databasesClient.databases.forEach(db => {
+        console.log(`--${db.name}`)
+    })
+}
 
 // let MongoClient = require('mongodb').MongoClient
 //     , format = require('util').format;
@@ -89,22 +89,22 @@ const {MongoClient} = require('mongodb')
 // const MongoClient = require("mongodb");
 
 // Connection URL
-const url = 'mongodb://localhost:27017/';
-
-// Database name
-const databasename = "apple";
-
-MongoClient.connect(url).then((client) => {
-
-    // Use admin request
-    const connect = client.db().admin();
-    console.dir(connect)
-    connect.listDatabases((err,db) => {
-        // Printing the databases
-        if(!err) console.log(db.databases[0].name);
-    })
-}).catch((err) => {
-
-    // Printing the error message
-    console.log(err.Message);
-})
+// const url = 'mongodb://localhost:27017/';
+//
+// // Database name
+// const databasename = "apple";
+//
+// MongoClient.connect(url).then((client) => {
+//
+//     // Use admin request
+//     const connect = client.db().admin();
+//     console.dir(connect)
+//     connect.listDatabases((err,db) => {
+//         // Printing the databases
+//         if(!err) console.log(db.databases[0].name);
+//     })
+// }).catch((err) => {
+//
+//     // Printing the error message
+//     console.log(err.Message);
+// })
