@@ -133,7 +133,7 @@ const MongoClient = require('mongodb').MongoClient;
 //
 // }
 async function main() {
-    const url = 'mongodb://localhost:27017/';
+    const url = 'mongodb://localhost:27017/apple';
 // const client = new MongoClient(url);
 
 // Database Name
