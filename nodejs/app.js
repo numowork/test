@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended: true}));
 // console.log("Database connected successfully");
 // console.log(db.logs.find())
 // });
-const {MongoClient} = require('mongodb')
+// const {MongoClient} = require('mongodb')
 //
 // let x = new Mongo('mongodb://127.0.0.1:27017/');
 // let mydb = x.getDB('apple');
@@ -69,10 +69,10 @@ const {MongoClient} = require('mongodb')
 
 // const mongoose = require('mongoose');
 
-const MONGO_USERNAME = 'numowork';
-const MONGO_PASSWORD = '12345';
-const MONGO_HOSTNAME = '127.0.0.1';
-const MONGO_PORT = '27017';
+// const MONGO_USERNAME = 'numowork';
+// const MONGO_PASSWORD = '12345';
+// const MONGO_HOSTNAME = '127.0.0.1';
+// const MONGO_PORT = '27017';
 // const MONGO_DB = 'apple';
 
 // async function start(){
@@ -111,25 +111,30 @@ const MONGO_PORT = '27017';
 // })
 
 
-// const {MongoClient} = require('mongodb');
+const {MongoClient} = require('mongodb');
 // or as an es module:
 // import { MongoClient } from 'mongodb'
 
 // Connection URL
-const url = await `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/}?authSource=admin`;
-// const url = 'mongodb://localhost:27017';
-const client = new MongoClient(url);
+// const url = await `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/}?authSource=admin`;
+const url = 'mongodb://localhost:27017';
+
 
 // Database Name
 const dbName = 'apple';
 
 async function main() {
-    await client.connect();
-    console.log('Connected successfully to server');
-    const db = client.db(dbName);
-    const collection = db.collection('logs');
-    const findResult = await collection.find({status: 200}).toArray();
-    console.log('Found documents =>', findResult);
+    MongoClient.connect(url, (err, client=>{
+        console.log(err)
+        console.log(client(dbName).collection('logs'))
+        console.log(client.db(dbName))
+    }));
+    // await client.connect();
+    // console.log('Connected successfully to server');
+    // const db = client.db(dbName);
+    // const collection = db.collection('logs');
+    // const findResult = await collection.find({status: 200}).toArray();
+    // console.log('Found documents =>', findResult);
 
 }
 
