@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "dsf"
-scp /srv/theplatform/app.log -i ~/All/ssh/root.pem -o StrictHostKeyChecking=no -r root@93.123.12.65:/root/datacat/brands/genesis/app.log
+scp -i ~/All/ssh/root.pem -o StrictHostKeyChecking=no -r /srv/theplatform/app.log root@93.123.12.65:/root/datacat/brands/genesis/app.log
 echo "copied"
 declare -A brands=(
   ["genesis"]="root@93.123.12.65"
