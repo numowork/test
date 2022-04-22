@@ -49,13 +49,14 @@ const {MongoClient} = require('mongodb')
     , format = require('util').format;
 MongoClient.connect('mongodb://127.0.0.1:27017/apple', function (err, db) {
     if (err) throw err;
-
-    let collection = db.collection('logs');
-    collection.insert({a: 2}, function (err, docs) {
-        collection.count(function (err, count) {
-            console.log(format("count = %s", count));
-            db.close();
-        });
-    });
+    console.log(db)
+    console.log(JSON.parse(db))
+    // let collection = db.collection('logs');
+    // collection.insert({a: 2}, function (err, docs) {
+    //     collection.count(function (err, count) {
+    //         console.log(format("count = %s", count));
+    //         db.close();
+    //     });
+    // });
 });
 
