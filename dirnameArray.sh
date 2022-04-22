@@ -6,8 +6,8 @@ brands=(*)
 
 for key in "${brands[@]}"; do
   echo "$key"
-  cp /srv/theplatform/app.log  /srv/logs/$key/app.log
-#  mongoimport --db test --collection restaurants --file /tmp/primer-dataset.json
+#  cp /srv/theplatform/app.log  /srv/logs/$key/app.log
+  mongoimport --db $key --collection logs --file /srv/logs/$key/app.log
 done
 
 echo "$"
