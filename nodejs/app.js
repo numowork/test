@@ -78,8 +78,10 @@ const MONGO_DB = 'apple';
 async function start(){
     const url =  `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
     console.log(url)
-    const dd = await mongoose.connect(url, {useNewUrlParser: true});
-    console.log(dd)
+    const dd = await mongoose.connect(url);
+
+    console.log(dd.db)
+    console.log(dd.databases)
     // console.log(dd.db.collections())
     // console.log(dd.client)
 }
