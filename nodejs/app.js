@@ -118,26 +118,36 @@ const {MongoClient} = require('mongodb');
 // Connection URL
 // const url = await `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/}?authSource=admin`;
 const url = 'mongodb://localhost:27017';
-
+// const client = new MongoClient(url);
 
 // Database Name
 const dbName = 'apple';
 
+// async function main() {
+//     await client.connect();
+//     console.log('Connected successfully to server');
+//     const db = client.db(dbName);
+//     const collection = db.collection('logs');
+//     const findResult = await collection.find({status: 200}).toArray();
+//     console.log('Found documents =>', findResult);
+//
+// }
 async function main() {
-    MongoClient.connect(url, (err, db) => {
+    const client = new MongoClient.connect(url, function(err, db){
+        if (err) throw new Error("INVALID")
+        return db
+    });
 
-        // console.log(db(dbName).collection('logs'))
-        console.log(db(dbName).collection('logs').find({}).toArray())
-    })
     // await client.connect();
-    // console.log('Connected successfully to server');
-    // const db = client.db(dbName);
-    // const collection = db.collection('logs');
-    // const findResult = await collection.find({status: 200}).toArray();
-    // console.log('Found documents =>', findResult);
+    console.log('Connected successfully to server');
+    const db = client.db(dbName);
+    const collection = db.collection('logs');
+    const findResult = await collection.find({status: 200}).toArray();
+    console.log('Found documents =>', findResult);
 
 }
 
 main()
     .then(console.log)
     .catch(console.error)
+    .finally(() => client.close());
