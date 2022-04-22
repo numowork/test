@@ -101,7 +101,7 @@ MongoClient.connect(url).then((client) => {
 
     connect.listDatabases((err,db) => {
         // Printing the databases
-        if(!err) console.log(db);
+        if(!err) console.log(db.databases[0].name);
     })
 }).catch((err) => {
 
