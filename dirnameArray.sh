@@ -1,11 +1,13 @@
 shopt -s nullglob
 #array=(*)
 #array2=(file*)
-cd /root/numowork/
-array3=(*)
+cd /srv/logs/
+brands=(*)
 
-for key in "${array3[@]}"; do
+for key in "${brands[@]}"; do
   echo "$key"
+  cp /srv/theplatform/app.log  /srv/logs/$key/app.log
+#  mongoimport --db test --collection restaurants --file /tmp/primer-dataset.json
 done
 
 echo "$"
