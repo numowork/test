@@ -1,6 +1,7 @@
 shopt -s nullglob
 array=(*)
 array2=(file*)
-array3=(/root/numowork/*)
+cd /root/numowork/
+array3=( $(ls) )
 
 echo "$array3"
