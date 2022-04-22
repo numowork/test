@@ -97,7 +97,7 @@ const databasename = "apple";
 MongoClient.connect(url).then((client) => {
 
     // Use admin request
-    const connect = client.db.admin();
+    const connect = client.db().admin();
 
     connect.listDatabases((err,db) => {
         // Printing the databases
