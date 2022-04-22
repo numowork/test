@@ -46,8 +46,8 @@ async function listDatabases(client) {
     const databasesClient = await client.db('apple').collection("logs");
 
     console.log("Databases:", databasesClient)
-    databasesClient.databases.forEach(db => {
-        console.log(`--${db.name}`)
+    databasesClient.db.forEach(db => {
+        console.log(`--${db}`)
     })
 }
 
