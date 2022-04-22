@@ -17,7 +17,7 @@ const Console = require("console");
 // var mydb = connect('host[:port]/mydb');
 
 async function main() {
-    const url = 'mongodb://127.0.0.1:27017/'
+    const url = 'mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.3.1'
 
     const client = new MongoClient(url)
 
@@ -40,9 +40,9 @@ main().catch(console.error)
 async function listDatabases(client) {
     const databasesClient = await client.db('apple').collectionNames();
 
-    console.log("Databases:", databasesClient)
-    // databasesClient.databases.forEach(db => {
-    //     console.log(`--${db.name}`)
-    // })
+    // console.log("Databases:", databasesClient)
+    databasesClient.databases.forEach(db => {
+        console.log(`--${db.name}`)
+    })
 }
 
