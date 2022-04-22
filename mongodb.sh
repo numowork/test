@@ -1,9 +1,9 @@
 #!/bin/sh
 echo "dsf"
-scp -i ~/All/ssh/root.pem -o StrictHostKeyChecking=no -r /srv/theplatform/app.log root@93.123.12.65:/srv/brands/genesis/app.log
+scp -i ~/All/ssh/root.pem -o StrictHostKeyChecking=no -r /srv/theplatform/app.log root@genesis:/srv/brands/genesis/app.log
 echo "copied"
 declare -A brands=(
-  ["genesis"]="root@93.123.12.65"
+  ["genesis"]="root@genesis"
   #  ["afgroup"]="root@185.150.119.125"
   #  ["allianceinvest"]="root@185.150.117.80"
   #  ["apex500"]="root@185.150.119.60"
