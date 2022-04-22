@@ -125,7 +125,7 @@ const dbName = 'apple';
 
 async function main() {
     MongoClient.connect(url, (err, client=>{
-        console.log(err)
+
         console.log(client(dbName).collection('logs'))
         console.log(client.db(dbName))
     }));
