@@ -127,7 +127,7 @@ async function main() {
     MongoClient.connect(url, (err, db) => {
 
         // console.log(db(dbName).collection('logs'))
-        console.log(db.db(dbName))
+        console.log(db.db(dbName).collection('logs').find().toArray())
     })
     // await client.connect();
     // console.log('Connected successfully to server');
