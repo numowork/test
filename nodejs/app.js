@@ -46,9 +46,10 @@ async function listDatabases(client) {
     const databasesClient = await client.db('apple').collection("logs");
 
     console.log("Databases:", databasesClient)
-    databasesClient.db.forEach(db => {
-        console.log(`--${db}`)
-    })
+    console.log("Databases:", databasesClient.db)
+    // databasesClient.db.forEach(db => {
+    //     console.log(`--${db}`)
+    // })
 }
 
 // let MongoClient = require('mongodb').MongoClient
