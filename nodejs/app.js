@@ -9,6 +9,7 @@
 // console.log(db.logs.find())
 // });
 const {MongoClient} = require('mongodb')
+const Console = require("console");
 //
 // let x = new Mongo('mongodb://127.0.0.1:27017/');
 // let mydb = x.getDB('apple');
@@ -23,6 +24,7 @@ async function main() {
     try {
         console.log("working")
         await client.connect()
+        // client.db
         await listDatabases(client)
     } catch (e) {
         console.log(e)
@@ -38,9 +40,9 @@ main().catch(console.error)
 async function listDatabases(client) {
     const databasesClient = await client.db.listDatabases();
 
-    console.log("Databases:")
-    databasesClient.databases.forEach(db => {
-        console.log(`--${db.name}`)
-    })
+    console.log("Databases:", databasesClient)
+    // databasesClient.databases.forEach(db => {
+    //     console.log(`--${db.name}`)
+    // })
 }
 
