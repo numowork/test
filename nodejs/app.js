@@ -124,10 +124,10 @@ const url = 'mongodb://localhost:27017';
 const dbName = 'apple';
 
 async function main() {
-    MongoClient.connect(url, (err, client) => {
+    MongoClient.connect(url, (err, db) => {
 
-        console.log(client(dbName).collection('logs'))
-        console.log(client.db(dbName))
+        console.log(db(dbName).collection('logs'))
+        console.log(db.db(dbName))
     })
     // await client.connect();
     // console.log('Connected successfully to server');
