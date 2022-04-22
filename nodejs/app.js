@@ -145,8 +145,8 @@ async function main() {
 
     // await client.connect();
     console.log('Connected successfully to server');
-    const db = client.db(dbName);
-    const collection = db.collection('logs');
+    // const db = client.db(dbName);
+    const collection = client.collection('logs');
     const findResult = await collection.find({status: 200}).toArray();
     console.log('Found documents =>', findResult);
 
