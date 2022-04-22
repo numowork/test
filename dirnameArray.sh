@@ -1,7 +1,11 @@
 shopt -s nullglob
-array=(*)
-array2=(file*)
-cd /root/numowork/
-array3=( $(ls) )
+#array=(*)
+#array2=(file*)
 
-echo "$array3"
+array3=(/root/numowork/*)
+
+for key in "${array3[@]}"; do
+  echo "$key"
+done
+
+echo "$"
