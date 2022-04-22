@@ -98,7 +98,7 @@ MongoClient.connect(url).then((client) => {
 
     // Use admin request
     const connect = client.db().admin();
-
+    console.log(connect)
     connect.listDatabases((err,db) => {
         // Printing the databases
         if(!err) console.log(db.databases[0].name);
