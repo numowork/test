@@ -111,7 +111,7 @@ app.use(express.urlencoded({extended: true}));
 // })
 
 
-const {MongoClient} = require('mongodb');
+const MongoClient = require('mongodb').MongoClient;
 // or as an es module:
 // import { MongoClient } from 'mongodb'
 
