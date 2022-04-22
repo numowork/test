@@ -67,24 +67,23 @@ const {MongoClient} = require('mongodb')
 //     // });
 // });
 
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 const MONGO_USERNAME = 'numowork';
 const MONGO_PASSWORD = '12345';
 const MONGO_HOSTNAME = '127.0.0.1';
 const MONGO_PORT = '27017';
-const MONGO_DB = 'apple';
+// const MONGO_DB = 'apple';
 
-async function start(){
-    const url =  `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
-    console.log(url)
-    const dd = await mongoose.connect(url);
-
-    console.log(dd.db.listDatabases())
-    // console.log(dd.db.collections())
-    // console.log(dd.client)
-}
-start()
+// async function start(){
+//     const url = await `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+//     console.log(url)
+//     const dd = await mongoose.connect(url, {useNewUrlParser: true});
+//     // console.log(dd.db.collections)
+//     console.log(dd.db.collections())
+//     console.log(dd.client)
+// }
+// start()
 
 
 // Requiring module
@@ -117,24 +116,24 @@ start()
 // import { MongoClient } from 'mongodb'
 
 // Connection URL
-// const url = await `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+const url = await `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/}?authSource=admin`;
 // const url = 'mongodb://localhost:27017';
-// const client = new MongoClient(url);
-//
-// // Database Name
-// const dbName = 'apple';
-//
-// async function main() {
-//     await client.connect();
-//     console.log('Connected successfully to server');
-//     const db = client.db(dbName);
-//     const collection = db.collection('logs');
-//     const findResult = await collection.find({status: 200}).toArray();
-//     console.log('Found documents =>', findResult);
-//
-// }
-//
-// main()
-//     .then(console.log)
-//     .catch(console.error)
-//     .finally(() => client.close());
+const client = new MongoClient(url);
+
+// Database Name
+const dbName = 'apple';
+
+async function main() {
+    await client.connect();
+    console.log('Connected successfully to server');
+    const db = client.db(dbName);
+    const collection = db.collection('logs');
+    const findResult = await collection.find({status: 200}).toArray();
+    console.log('Found documents =>', findResult);
+
+}
+
+main()
+    .then(console.log)
+    .catch(console.error)
+    .finally(() => client.close());
