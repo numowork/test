@@ -80,4 +80,4 @@ async function start(){
     const dd = await mongoose.connect(url, {useNewUrlParser: true});
     console.log(dd)
 }
-
+start()
