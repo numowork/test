@@ -117,11 +117,11 @@ const MongoClient = require('mongodb').MongoClient;
 
 // Connection URL
 // const url = await `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/}?authSource=admin`;
-const url = 'mongodb://localhost:27017';
-// const client = new MongoClient(url);
-
-// Database Name
-const dbName = 'apple';
+// const url = 'mongodb://localhost:27017';
+// // const client = new MongoClient(url);
+//
+// // Database Name
+// const dbName = 'apple';
 
 // async function main() {
 //     await client.connect();
@@ -133,6 +133,11 @@ const dbName = 'apple';
 //
 // }
 async function main() {
+    const url = 'mongodb://localhost:27017';
+// const client = new MongoClient(url);
+
+// Database Name
+    const dbName = 'apple';
     const client = await MongoClient.connect(url,  function (err, db) {
         if (err) throw new Error("INVALID")
         return db
