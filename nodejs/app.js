@@ -133,7 +133,7 @@ const dbName = 'apple';
 //
 // }
 async function main() {
-    const client = MongoClient.connect(url, {native_parser: true}, function (err, db) {
+    const client = await MongoClient.connect(url,  function (err, db) {
         if (err) throw new Error("INVALID")
         return db
     });
